@@ -15,7 +15,7 @@
 # $sqlcollation
 # $admin
 #
-class mssql::params {
+class mssql2014::params {
   $instancename   = 'MSSQLSERVER'
   $features       = 'SQL,IS'
   $agtsvcaccount  = 'SQLAGTSVC'
