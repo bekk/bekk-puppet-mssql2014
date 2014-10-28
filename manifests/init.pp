@@ -10,7 +10,7 @@
 #
 # PuppetLabs
 #
-class mssql (
+class mssql2014 (
   # See http://msdn.microsoft.com/en-us/library/ms144259.aspx
   # Media is required to install
   $media,
