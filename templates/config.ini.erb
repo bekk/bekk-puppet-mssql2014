@@ -1,11 +1,11 @@
-;SQLSERVER2008 Configuration File
-[SQLSERVER2008]
+;SQLSERVER2014 Configuration File
+[SQLSERVER2014]
 
 ; Specifies a Setup work flow, like INSTALL, UNINSTALL, or UPGRADE. This is a required parameter.
 
 ACTION="Install"
 
-; Specifies features to install, uninstall, or upgrade. The list of top-level features include SQL, AS, RS, IS, and Tools. The SQL feature will install the database engine, replication, and full-text. The Tools feature will install Management Tools, Books online, Business Intelligence Development Studio, and other shared components.
+; Specifies features to install, uninstall, or upgrade. The list of top-level features include SQL, IS, and Tools. The SQL feature will install the database engine, replication, and full-text. The Tools feature will install Management Tools, Books online, Business Intelligence Development Studio, and other shared components.
 
 <% if @features -%>
 FEATURES=<%= @features %>
@@ -49,7 +49,7 @@ INSTANCEDIR="<%= @instancedir %>"
 
 SQMREPORTING="False"
 
-; Specify a default or named instance. MSSQLSERVER is the default instance for non-Express editions and SQLExpress for Express editions. This parameter is required when installing the SQL Server Database Engine (SQL), Analysis Services (AS), or Reporting Services (RS).
+; Specify a default or named instance. MSSQLSERVER is the default instance for non-Express editions and SQLExpress for Express editions. This parameter is required when installing the SQL Server Database Engine (SQL)
 
 <% if @instancename -%>
 INSTANCENAME="<%= @instancename %>"
@@ -68,59 +68,10 @@ AGTSVCPASSWORD="<%= @agtsvcpassword %>"
 
 AGTSVCSTARTUPTYPE="Manual"
 
-; Startup type for Integration Services.
-
-ISSVCSTARTUPTYPE="Automatic"
-
-; Account for Integration Services: Domain\User or system account.
-
-ISSVCACCOUNT="NT AUTHORITY\NetworkService"
-
-; The location for the Analysis Services data files.
-ASDATADIR="Data"
-
-; The location for the Analysis Services log files.
-ASLOGDIR="Log"
-
-; The location for the Analysis Services backup files.
-ASBACKUPDIR="Backup"
-
-; The location for the Analysis Services temporary files.
-ASTEMPDIR="Temp"
-
-; The location for the Analysis Services configuration files.
-ASCONFIGDIR="Config"
-
-; The name of the account that the Analysis Services service runs under.
-<% if @assvcaccount -%>
-ASSVCACCOUNT="<%= @assvcaccount %>"
-<% end -%>
-<%if @assvcpassword -%>
-ASSVCPASSWORD="<%= @assvcpassword %>"
-<% end -%>
-
-; Controls the service startup type setting after the service has been created.
-
-ASSVCSTARTUPTYPE="Automatic"
-
-; The collation to be used by Analysis Services.
-<% if @ascollation -%>
-ASCOLLATION="<%= @ascollation %>"
-<% end -%>
-
-
-; Specifies whether or not the MSOLAP provider is allowed to run in process.
-
-ASPROVIDERMSOLAP="1"
-
 ; Specifies the list of administrator accounts that need to be provisioned.
 <% if @admin -%>
 ASSYSADMINACCOUNTS="<%= @admin %>"
 <% end -%>
-
-; A port number used to connect to the SharePoint Central Administration web application.
-
-FARMADMINPORT="0"
 
 ; Startup type for the SQL Server service.
 
@@ -160,7 +111,7 @@ SQLSVCPASSWORD="<%= @sqlsvcpassword %>"
 SQLSYSADMINACCOUNTS="<%= @admin %>"
 <% end -%>
 
-; Provision current user as a Database Engine system administrator for SQL Server 2008 R2 Express.
+; Provision current user as a Database Engine system administrator for SQL Server 2014 Express.
 
 ADDCURRENTUSERASSQLADMIN="False"
 
@@ -170,33 +121,11 @@ TCPENABLED="1"
 
 ; Specify 0 to disable or 1 to enable the Named Pipes protocol.
 
-NPENABLED="0"
+NPENABLED="1"
 
 ; Startup type for Browser Service.
 
 BROWSERSVCSTARTUPTYPE="Automatic"
-
-; Specifies which account the report server NT service should execute under.  When omitted or when the value is empty string, the default built-in account for the current operating system.
-; The username part of RSSVCACCOUNT is a maximum of 20 characters long and
-; The domain part of RSSVCACCOUNT is a maximum of 254 characters long.
-<% if @rssvcaccount -%>
-RSSVCACCOUNT="<%= @rssvcaccount %>
-<% end -%>
-<% if @rssvcpassword -%>
-RSSVCPASSWORD="<%= @rssvcpassword %>
-<% end -%>
-
-; Specifies how the startup mode of the report server NT service.  When
-; Manual - Service startup is manual mode (default).
-; Automatic - Service startup is automatic mode.
-; Disabled - Service is disabled
-
-RSSVCSTARTUPTYPE="Automatic"
-
-; Specifies which mode report server is installed in.
-; Default value: “FilesOnly”
-
-RSINSTALLMODE="FilesOnlyMode"
 
 ; Add description of input argument FTSVCACCOUNT
 
