@@ -1,10 +1,10 @@
 # Microsoft SQL Server puppet module.
 
-This module installs Microsoft SQL Server 2008R2 on Windows 2008R2.
+This module installs Microsoft SQL Server 2014 on Windows 2012R2.
 
 ## Installation
 
-This module depends on DISM module to enable .net 3.5 on Windows Server:
+This module depends on DISM module to enable .net 3.5 & .net 4.0 on Windows Server:
 
 * [dism module](http://forge.puppetlabs.com/puppetlabs/dism)
 
@@ -17,10 +17,6 @@ The installer support the following options:
     features       = 'SQL,AS,RS,IS',
     agtsvcaccount  = 'SQLAGTSVC',
     agtsvcpassword = 'sqlagtsvc2008demo',
-    assvcaccount   = 'SQLASSVC',
-    assvcpassword  = 'sqlassvc2008demo',
-    rssvcaccount   = 'SQLRSSVC',
-    rssvcpassword  = 'sqlrssvc2008demo',
     sqlsvcaccount  = 'SQLSVC',
     sqlsvcpassword = 'sqlsvc2008demo',
     instancedir    = "C:\\Program Files\\Microsoft SQL Server",
