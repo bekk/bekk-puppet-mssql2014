@@ -66,11 +66,7 @@ class mssql (
     content => template('mssql/config.ini.erb'),
   }
 
-  dism { 'NetFx35':
-    ensure => present,
-  }
-
-  dism { 'NetFx4':
+  dism { 'NetFx3':
     ensure => present,
   }
 
