@@ -49,43 +49,39 @@ class mssql (
 
   User {
     ensure   => present,
-    before => Exec['install_mssql2008'],
+    before => Exec['install_mssql2014'],
   }
 
   user { 'SQLAGTSVC':
-    comment  => 'SQL 2008 Agent Service.',
+    comment  => 'SQL 2014 Agent Service.',
     password => $agtsvcpassword,
   }
-  user { 'SQLASSVC':
-    comment  => 'SQL 2008 Analysis Service.',
-    password => $assvcpassword,
-  }
-  user { 'SQLRSSVC':
-    comment  => 'SQL 2008 Report Service.',
-    password => $rssvcpassword,
-  }
   user { 'SQLSVC':
-    comment  => 'SQL 2008 Service.',
+    comment  => 'SQL 2014 Service.',
     groups   => 'Administrators',
     password => $sqlsvcpassword,
   }
 
-  file { 'C:\sql2008install.ini':
+  file { 'C:\sql2014install.ini':
     content => template('mssql/config.ini.erb'),
   }
 
-  dism { 'NetFx3':
+  dism { 'NetFx35':
     ensure => present,
   }
 
-  exec { 'install_mssql2008':
-    command   => "${media}\\setup.exe /Action=Install /IACCEPTSQLSERVERLICENSETERMS /QS /CONFIGURATIONFILE=C:\\sql2008install.ini /SQLSVCPASSWORD=\"${sqlsvcpassword}\" /AGTSVCPASSWORD=\"${agtsvcpassword}\" /ASSVCPASSWORD=\"${assvcpassword}\" /RSSVCPASSWORD=\"${rssvcpassword}\"",
+  dism { 'NetFx4':
+    ensure => present,
+  }
+
+  exec { 'install_mssql2014':
+    command   => "${media}\\setup.exe /Action=Install /IACCEPTSQLSERVERLICENSETERMS /QS /CONFIGURATIONFILE=C:\\sql2014install.ini /SQLSVCPASSWORD=\"${sqlsvcpassword}\" /AGTSVCPASSWORD=\"${agtsvcpassword}\" ",
     cwd       => $media,
     path      => $media,
     logoutput => true,
     creates   => $instancedir,
     timeout   => 1200,
-    require   => [ File['C:\sql2008install.ini'],
+    require   => [ File['C:\sql2014install.ini'],
                    Dism['NetFx3'] ],
   }
 }
