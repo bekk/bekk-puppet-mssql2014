@@ -25,5 +25,7 @@ class mssql2014::params {
   $instancedir    = 'C:\Program Files\Microsoft SQL Server\MSSQL10_50.MSSQLSERVER\MSSQL\Binn\sqlservr.exe'
   $ascollation    = 'Latin1_General_CI_AS'
   $sqlcollation   = 'SQL_Latin1_General_CP1_CI_AS'
+  $securitymode   = 'SQL'
   $admin          = 'Administrator'
+  $sapwd          = 'D0gf00d'
 }
