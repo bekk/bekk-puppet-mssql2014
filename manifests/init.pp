@@ -18,16 +18,14 @@ class mssql2014 (
   $features       = $mssql::params::features,
   $agtsvcaccount  = $mssql::params::agtsvcaccount,
   $agtsvcpassword = $mssql::params::agtsvcpassword,
-  $assvcaccount   = $mssql::params::assvcaccount,
-  $assvcpassword  = $mssql::params::assvcpassword,
-  $rssvcaccount   = $mssql::params::rssvcaccount,
-  $rssvcpassword  = $mssql::params::rssvcpassword,
   $sqlsvcaccount  = $mssql::params::sqlsvcaccount,
   $sqlsvcpassword = $mssql::params::sqlsvcpassword,
   $instancedir    = $mssql::params::instancedir,
   $ascollation    = $mssql::params::ascollation,
   $sqlcollation   = $mssql::params::sqlcollation,
+  $securitymode   = $mssql::params::securitymode,
   $admin          = $mssql::params::admin,
+  $sapwd          = $mssql::params::sapwd,
 ) inherits mssql::params {
 
   # validation
@@ -36,16 +34,14 @@ class mssql2014 (
   validate_string($features)
   validate_string($agtsvcaccount)
   validate_string($agtsvcpassword)
-  validate_string($assvcaccount)
-  validate_string($assvcpassword)
-  validate_string($rssvcaccount)
-  validate_string($rssvcpassword)
   validate_string($sqlsvcaccount)
   validate_string($sqlsvcpassword)
   validate_string($instancedir)
   validate_string($ascollation)
   validate_string($sqlcollation)
+  validate_string($securitymode)
   validate_string($admin)
+  validate_string($sapwd)
 
   User {
     ensure   => present,
