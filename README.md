@@ -13,17 +13,19 @@ This module depends on DISM module to enable .net 3.5 on Windows Server:
 Example:
 ```puppet
 class {'mssql2014':
-    media          => 'D:',
-    instancename   => 'MSSQLSERVER',
-    features       => 'SQL,AS,RS,IS',
-    agtsvcaccount  => 'SQLAGTSVC',
-    agtsvcpassword => 'sqlagtsvc2014demo',
-    sqlsvcaccount  => 'SQLSVC',
-    sqlsvcpassword => 'sqlsvc2014demo',
-    instancedir    => "C:\\Program Files\\Microsoft SQL Server",
-    ascollation    => 'Latin1_General_CI_AS',
-    sqlcollation   => 'SQL_Latin1_General_CP1_CI_AS',
-    admin          => 'Administrator'
+    media           => 'D:',
+    instancename    => 'MSSQLSERVER',
+    features        => 'SQL,IS',
+    agtsvcaccount   => 'SQLAGTSVC',
+    agtsvcpassword  => 'sqlagtsvc2014demo',
+    sqlsvcaccount   => 'SQLSVC',
+    sqlsvcpassword  => 'sqlsvc2014demo',
+    instancedir     => "C:\\Program Files\\Microsoft SQL Server",
+    ascollation     => 'Latin1_General_CI_AS',
+    sqlcollation    => 'SQL_Latin1_General_CP1_CI_AS',
+    securitymode    => 'SQL',
+    admin           => 'Administrator',
+    sapwd           => 'sapwd!2014demo'
     }
 ```
 
