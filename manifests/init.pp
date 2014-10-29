@@ -64,6 +64,7 @@ class mssql2014 (
 
   dism { 'NetFx3':
     ensure => present,
+    all => true,
   }
 
   exec { 'install_mssql2014':
