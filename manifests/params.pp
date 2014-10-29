@@ -1,4 +1,4 @@
-# == class: mssql::params
+# == class: mssql2014::params
 #
 # This class manages MSSQL paraameters
 #
