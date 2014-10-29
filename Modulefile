@@ -5,7 +5,7 @@ author  'Pierrick Lozach'
 license 'Apache License 2.0'
 summary 'Microsoft SQL Server 2014 Module'
 description 'Microsoft SQL Server 2014 Installation Module for Puppet'
-project_page 'https://github.com/puppetlabs/puppetlabs-mssql'
+project_page 'https://github.com/PierrickI3/mssql2014'
 
 dependency 'puppetlabs/dism', '>= 0.1.0'
 dependency 'puppetlabs/stdlib', '>= 3.1.0'
