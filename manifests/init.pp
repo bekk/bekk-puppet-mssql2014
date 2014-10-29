@@ -14,19 +14,19 @@ class mssql2014 (
   # See http://msdn.microsoft.com/en-us/library/ms144259.aspx
   # Media is required to install
   $media,
-  $instancename   = $mssql::params::instancename,
-  $features       = $mssql::params::features,
-  $agtsvcaccount  = $mssql::params::agtsvcaccount,
-  $agtsvcpassword = $mssql::params::agtsvcpassword,
-  $sqlsvcaccount  = $mssql::params::sqlsvcaccount,
-  $sqlsvcpassword = $mssql::params::sqlsvcpassword,
-  $instancedir    = $mssql::params::instancedir,
-  $ascollation    = $mssql::params::ascollation,
-  $sqlcollation   = $mssql::params::sqlcollation,
-  $securitymode   = $mssql::params::securitymode,
-  $admin          = $mssql::params::admin,
-  $sapwd          = $mssql::params::sapwd,
-) inherits mssql::params {
+  $instancename   = $mssql2014::params::instancename,
+  $features       = $mssql2014::params::features,
+  $agtsvcaccount  = $mssql2014::params::agtsvcaccount,
+  $agtsvcpassword = $mssql2014::params::agtsvcpassword,
+  $sqlsvcaccount  = $mssql2014::params::sqlsvcaccount,
+  $sqlsvcpassword = $mssql2014::params::sqlsvcpassword,
+  $instancedir    = $mssql2014::params::instancedir,
+  $ascollation    = $mssql2014::params::ascollation,
+  $sqlcollation   = $mssql2014::params::sqlcollation,
+  $securitymode   = $mssql2014::params::securitymode,
+  $admin          = $mssql2014::params::admin,
+  $sapwd          = $mssql2014::params::sapwd,
+) inherits mssql2014::params {
 
   # validation
   validate_string($media)
