@@ -59,7 +59,7 @@ class mssql2014 (
   }
 
   file { 'C:\sql2014install.ini':
-    content => template('mssql/config.ini.erb'),
+    content => template('mssql2014/config.ini.erb'),
   }
 
   dism { 'NetFx3':
