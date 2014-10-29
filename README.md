@@ -15,7 +15,7 @@ Example:
 class {'mssql2014':
     media           => "D:",
     instancename    => 'MSSQLSERVER',
-    features        => 'SQL,IS',
+    features        => 'SQL,Tools',
     agtsvcaccount   => 'SQLAGTSVC',
     agtsvcpassword  => 'sqlagtsvc2014demo',
     sqlsvcaccount   => 'SQLSVC',
