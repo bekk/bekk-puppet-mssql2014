@@ -1,4 +1,4 @@
-# == class: MSSQL
+# == class: MSSQL2014
 #
 # == Parameters
 #
@@ -8,7 +8,7 @@
 #
 # == Authors
 #
-# PuppetLabs
+# PuppetLabs/ININ
 #
 class mssql2014 (
   # See http://msdn.microsoft.com/en-us/library/ms144259.aspx
