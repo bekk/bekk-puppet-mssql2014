@@ -62,6 +62,12 @@ class mssql2014 (
     content => template('mssql2014/config.ini.erb'),
   }
 
+  exec { 'Fix line endings':
+    command => "ruby fixlineendings.rb",
+    path => "C:\\Program Files\\Puppet Labs\\Puppet\\sys\\ruby\\bin\\",
+    before => exec['install_mssql2014'],
+  }
+
   dism { 'NetFx3':
     ensure => present,
     all => true,
