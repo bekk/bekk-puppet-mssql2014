@@ -17,7 +17,7 @@
 #
 class mssql2014::params {
   $instancename   = 'MSSQLSERVER'
-  $features       = 'SQL,IS'
+  $features       = 'SQL,Tools'
   $agtsvcaccount  = 'SQLAGTSVC'
   $agtsvcpassword = 'D0gf00d'
   $sqlsvcaccount  = 'SQLSVC'
