@@ -14,6 +14,7 @@ class mssql2014 (
   # See http://msdn.microsoft.com/en-us/library/ms144259.aspx
   # Media is required to install
   $media,
+  $instanceid     = $mssql2014::params::instanceid,
   $instancename   = $mssql2014::params::instancename,
   $features       = $mssql2014::params::features,
   $agtsvcaccount  = $mssql2014::params::agtsvcaccount,
@@ -30,6 +31,7 @@ class mssql2014 (
 
   # validation
   validate_string($media)
+  validate_string($instanceid)
   validate_string($instancename)
   validate_string($features)
   validate_string($agtsvcaccount)
@@ -49,11 +51,11 @@ class mssql2014 (
   }
 
   user { 'SQLAGTSVC':
-    comment  => 'SQL 2014 Agent Service.',
+    comment  => 'SQL 2014 Agent Service',
     password => $agtsvcpassword,
   }
   user { 'SQLSVC':
-    comment  => 'SQL 2014 Service.',
+    comment  => 'SQL 2014 Service',
     groups   => 'Administrators',
     password => $sqlsvcpassword,
   }
@@ -73,7 +75,7 @@ class mssql2014 (
     path      => $media,
     logoutput => true,
     creates   => $instancedir,
-    timeout   => 1200,
+    timeout   => 1800,
     require   => [ File['C:\sql2014install.ini'],
                    Dism['NetFx3'] ],
   }
