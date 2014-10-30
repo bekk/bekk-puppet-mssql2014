@@ -32,6 +32,11 @@ INSTANCEDIR="<%= @instancedir %>"
 ; Specify that SQL Server feature usage data can be collected and sent to Microsoft. Specify 1 or True to enable and 0 or False to disable this feature.
 SQMREPORTING="False"
 
+; Specify the instance id for the SQL Server features you have specified. SQL Server directory structure, registry structure and service names will incorporate the instance ID of the SQL Server instance.
+<% if @instanceid -%>
+INSTANCEID="<%= @instanceid %>"
+<% end -%>
+
 ; Specify a default or named instance. MSSQLSERVER is the default instance for non-Express editions and SQLExpress for Express editions. This parameter is required when installing the SQL Server Database Engine (SQL)
 <% if @instancename -%>
 INSTANCENAME="<%= @instancename %>"
