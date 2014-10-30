@@ -4,6 +4,7 @@
 #
 # == Paramaters
 #
+# $instanceid
 # $instancename
 # $features
 # $agtsvcaccount
@@ -16,6 +17,7 @@
 # $admin
 #
 class mssql2014::params {
+  $instanceid     = 'MSSQLSERVER'
   $instancename   = 'MSSQLSERVER'
   $features       = 'SQL,Tools'
   $agtsvcaccount  = 'SQLAGTSVC'
