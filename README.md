@@ -14,6 +14,7 @@ Example:
 ```puppet
 class {'mssql2014':
     media           => "D:",
+    instanceid      => 'MSSQLSERVER',
     instancename    => 'MSSQLSERVER',
     features        => 'SQL,Tools',
     agtsvcaccount   => 'SQLAGTSVC',
