@@ -2,7 +2,7 @@
 #
 # This class manages MSSQL paraameters
 #
-# == Paramaters
+# == Parameters
 #
 # $instanceid
 # $instancename
