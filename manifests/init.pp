@@ -82,7 +82,7 @@ class mssql2014 (
     logoutput => true,
     creates   => $instancedir,
     timeout   => 1800,
-    require   => [ File['C:\sql2014install.ini'],
+    require   => [ File['C:\\sql2014install.ini'],
                    Dism['NetFx3'] ],
   }
 }
