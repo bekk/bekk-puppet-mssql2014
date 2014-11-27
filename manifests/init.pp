@@ -27,6 +27,9 @@ class mssql2014 (
   $securitymode   = $mssql2014::params::securitymode,
   $admin          = $mssql2014::params::admin,
   $sapwd          = $mssql2014::params::sapwd,
+  $sqluserdbdir   = $mssql2014::params::sqluserdbdir,
+  $sqluserdblogdir  = $mssql2014::params::sqluserdblogdir,
+  $sqlbackupdir   = $mssql2014::params::sqlbackupdir,
 ) inherits mssql2014::params {
 
   # validation
@@ -44,6 +47,9 @@ class mssql2014 (
   validate_string($securitymode)
   validate_string($admin)
   validate_string($sapwd)
+  validate_string($sqluserdbdir)
+  validate_string($sqluserdblogdir)
+  validate_string($sqlbackupdir)
 
   User {
     ensure   => present,
@@ -70,7 +76,7 @@ class mssql2014 (
   }
 
   exec { 'install_mssql2014':
-    command   => "${media}\\setup.exe /IACCEPTSQLSERVERLICENSETERMS /QS /CONFIGURATIONFILE=C:\\sql2014install.ini /SQLSVCPASSWORD=\"${sqlsvcpassword}\" /AGTSVCPASSWORD=\"${agtsvcpassword}\" ",
+    command   => "${media}\\setup.exe /IACCEPTSQLSERVERLICENSETERMS /QS /CONFIGURATIONFILE=C:\\sql2014install.ini /SQLSVCPASSWORD=\"${sqlsvcpassword}\" /AGTSVCPASSWORD=\"${agtsvcpassword}\" /SQLUSERDBDIR=\"${sqluserdbdir}\" /SQLUSERDBLOGDIR=\"${sqluserdblogdir}\" /SQLBACKUPDIR \"${sqlbackupdir}\"",
     cwd       => $media,
     path      => $media,
     logoutput => true,

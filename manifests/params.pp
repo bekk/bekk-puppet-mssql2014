@@ -30,4 +30,7 @@ class mssql2014::params {
   $securitymode   = 'SQL'
   $admin          = 'Administrator'
   $sapwd          = 'D0gf00d'
+  $sqluserdbdir   = "${instancedir}\\${instanceid}\\MSSQL\\Data"
+  $sqluserdblogdir  = "${instancedir}\\${instanceid}\\MSSQL\\Data"
+  $sqlbackupdir   = "${instancedir}\\${instanceid}\\MSSQL\\Data"
 }
