@@ -76,13 +76,13 @@ class mssql2014 (
   }
 
   exec { 'install_mssql2014':
-    command   => "${media}\\setup.exe /IACCEPTSQLSERVERLICENSETERMS /QS /CONFIGURATIONFILE=C:\\sql2014install.ini /SQLSVCPASSWORD=\"${sqlsvcpassword}\" /AGTSVCPASSWORD=\"${agtsvcpassword}\" /SQLUSERDBDIR=\"${sqluserdbdir}\" /SQLUSERDBLOGDIR=\"${sqluserdblogdir}\" /SQLBACKUPDIR \"${sqlbackupdir}\"",
-    cwd       => $media,
-    path      => $media,
+    command   => "${media}\\Temp\\SQL\\setup.exe /IACCEPTSQLSERVERLICENSETERMS /QS /CONFIGURATIONFILE=C:\\sql2014install.ini /SQLSVCPASSWORD=\"${sqlsvcpassword}\" /AGTSVCPASSWORD=\"${agtsvcpassword}\" /SQLUSERDBDIR=${sqluserdbdir} /SQLUSERDBLOGDIR=${sqluserdblogdir} /SQLBACKUPDIR=${sqlbackupdir}",
+    cwd       => "${media}\\",
+    path      => "${media}\\",
     logoutput => true,
     creates   => $instancedir,
     timeout   => 1800,
-    require   => [ File['C:\\sql2014install.ini'],
+    require   => [ File['C:\sql2014install.ini'],
                    Dism['NetFx3'] ],
   }
 }
